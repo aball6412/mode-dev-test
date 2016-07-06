@@ -1,2 +1,2 @@
-# mode-dev-test
+# MODE Development Test
 Development test for MODE
