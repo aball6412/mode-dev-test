@@ -8,6 +8,14 @@ Development test for MODE
 # Back End Details
 
 # Front End Details
+#### Developed With:
+
++ Javascript
++ PHP
++ JQuery
++ Bootstrap
++ CSS
++ HTML
 
 # Difficulties
 
