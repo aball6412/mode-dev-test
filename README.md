@@ -12,6 +12,7 @@ Development test for MODE
 
 + Javascript
 + PHP
++ MySQL
 + JQuery
 + Bootstrap
 + CSS
