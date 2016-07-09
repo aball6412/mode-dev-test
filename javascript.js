@@ -232,7 +232,7 @@ $(document).ready(function() {
         var timestamp = Date.now();
         console.log(timestamp);
         
-        var info = { email_address: email_address, timestamp: timestamp };
+        var info = { email_address: email_address.toLowerCase(), timestamp: timestamp };
         
 
         //Validate email address
@@ -248,7 +248,10 @@ $(document).ready(function() {
         if (validate) {
         
             //Send address to server for processing
-            $.post("http://localhost:8888/signup.php", info, function(data) {
+            var dev_url = "http://localhost:8888/signup.php";
+            var url = "https://modedevtest.herokuapp.com/signup.php";
+            
+            $.post(url, info, function(data) {
 
                 console.log(data);
 

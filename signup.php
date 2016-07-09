@@ -8,10 +8,18 @@
     $email_address = $_POST["email_address"];
     $timestamp = $_POST["timestamp"];
     $database = "email addresses";
-    $username = "root";
-    $password = "root";
-    $host = "localhost";
-    $port = "8889";
+
+    //DEV INFO/////////////
+//    $username = "root";
+//    $password = "root";
+//    $host = "localhost";
+//    $port = "8889";
+    /////////////////
+
+    $username = getenv("DB_USERNAME");
+    $password = getenv("DB_PASSWORD");
+    $host = getenv("CLEARDB_DATABASE_URL");
+    $port = NULL;
 
     //Open up MySQL connection
     $conn = mysqli_connect($host, $username, $password, $database, $port);
