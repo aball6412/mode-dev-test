@@ -18,7 +18,7 @@
 
     $username = getenv("DB_USERNAME");
     $password = getenv("DB_PASSWORD");
-    $host = getenv("CLEARDB_DATABASE_URL");
+    $host = getenv("DB_HOST");
     $port = NULL;
     $database = getenv("DB");
 
