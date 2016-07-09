@@ -57,7 +57,7 @@ $(document).ready(function() {
             $(".request_sm").addClass("invisible");
         }
         
-       //console.log($(document).width());
+       console.log($(document).width());
         
     }); //End screen resize event
     
@@ -230,7 +230,6 @@ $(document).ready(function() {
         //Get email address from the field
         var email_address = $(".email input").val();
         var timestamp = Date.now();
-        console.log(timestamp);
         
         var info = { email_address: email_address.toLowerCase(), timestamp: timestamp };
         
@@ -253,14 +252,12 @@ $(document).ready(function() {
             
             $.post(url, info, function(data) {
 
-                console.log(data);
-
                 if(data === "Success") {
 
                     //SUCCESS RESPONSE FROM THE SERVER
                     //Get rid of original button and add the success button (nav bar too)
                     $(".email_button").addClass("invisible");
-                    $(".error_button").addClass("invisible"); ////////////
+                    $(".error_button").addClass("invisible");
                     $(".success_button").removeClass("invisible");
                     $(".nav_email_button").css(
                         {

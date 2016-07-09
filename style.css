@@ -461,6 +461,8 @@ body {
     
 }
 
+
+
 .exit_title {
     color: #df0e6b;
 }
@@ -472,13 +474,6 @@ body {
     top: 10px;
 }
 
-@media (max-width: 767px) {
-    
-    .exit_box_text {
-        top: 3px;
-    }
-    
-}
 
 .close_box {
     cursor: pointer;
@@ -501,6 +496,28 @@ body {
 }
 
 
+@media (max-width: 767px) {
+    
+    .exit_box {
+        height: 70px;
+    }
+    
+    .exit_box_text {
+        top: 5px;
+    }
+    
+    .close_box {
+        top: 20px;
+    }
+}
+
+
+@media (max-width: 550px) {
+    
+    .light_box {
+        bottom: 100px;   
+    }
+}
 
 
 
