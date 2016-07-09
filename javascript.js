@@ -57,7 +57,7 @@ $(document).ready(function() {
             $(".request_sm").addClass("invisible");
         }
         
-        console.log($(document).width());
+       //console.log($(document).width());
         
     }); //End screen resize event
     
@@ -330,6 +330,7 @@ $(document).ready(function() {
 
             //Display the error text
             $(".failure_invalid").removeClass("invisible");
+            $(".failure_duplicate").addClass("invisible");
 
             //Re do the margins in document
             $(".email_box").css("margin-bottom", "15px");
