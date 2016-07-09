@@ -234,103 +234,113 @@ $(document).ready(function() {
         
         var info = { email_address: email_address, timestamp: timestamp };
         
-        
-        
-        
-        
-        
+
         //Validate email address
-        
-        
-        
-        
-        //Send address to server for processing
-        $.post("http://localhost:8888/signup.php", info, function(data) {
-
-            console.log(data);
+        var email_validator = function(email) {
             
-            if(data === "Success") {
-                
-                //SUCCESS RESPONSE FROM THE SERVER
-                //Get rid of original button and add the success button (nav bar too)
-                $(".email_button").addClass("invisible");
-                $(".error_button").addClass("invisible"); ////////////
-                $(".success_button").removeClass("invisible");
-                $(".nav_email_button").css(
-                    {
-                        "background-image": "url('./images/success_button.png')",
-                        "background-size": "cover",
-                        "background-repeat": "no-repeat"
-                    });
-                $(".nav_big").remove();
-                $(".nav_sm").remove();
-                $(".nav_success").removeClass("invisible");
-                
-
-                //Display the success confirmation
-                $(".confirmation").removeClass("invisible");
-                $(".failure_duplicate").addClass("invisible");
-                $(".failure_invalid").addClass("invisible");
-                $(".email input").css("color", "#000000");
-
-                //Re do the margins in the document
-                $(".email_box").css("margin-bottom", "15px");
-                $(".confirmation").css("margin-bottom", "75px");
-                  
-            }
+            var regex = new RegExp(/^([a-zA-Z0-9+.-_])+\@+([a-zA-Z0-9]+\.)+([a-zA-Z0-9]{1,5})+$/);
             
-            else if (data === "Duplicate") {
-                
-                //FAILURE RESPONSE FROM THE SERVER DUPLICATE EMAIL ADDRESS
-                //Get rid of original button and add the error button (nav bar too)
-                //Turn input text red
-                $(".email_button").addClass("invisible");
-                $(".error_button").removeClass("invisible");
-                $(".email input").css("color", "#ff0000");
-                $(".nav_email_button").css(
-                    {
-                        "background-image": "url('./images/error_button.png')",
-                        "background-size": "cover",
-                        "background-repeat": "no-repeat"
-                    });
+            return regex.test(email);
+        }
+        
+        var validate = email_validator(email_address);
+        
+        if (validate) {
+        
+            //Send address to server for processing
+            $.post("http://localhost:8888/signup.php", info, function(data) {
 
-                //Display the error text
-                $(".failure_duplicate").removeClass("invisible");
+                console.log(data);
 
-                //Re do the margins in document
-                $(".email_box").css("margin-bottom", "15px");
-                $(".failure_duplicate").css("margin-bottom", "75px");
-                 
-            }
+                if(data === "Success") {
+
+                    //SUCCESS RESPONSE FROM THE SERVER
+                    //Get rid of original button and add the success button (nav bar too)
+                    $(".email_button").addClass("invisible");
+                    $(".error_button").addClass("invisible"); ////////////
+                    $(".success_button").removeClass("invisible");
+                    $(".nav_email_button").css(
+                        {
+                            "background-image": "url('./images/success_button.png')",
+                            "background-size": "cover",
+                            "background-repeat": "no-repeat"
+                        });
+                    $(".nav_big").remove();
+                    $(".nav_sm").remove();
+                    $(".nav_success").removeClass("invisible");
+
+
+                    //Display the success confirmation
+                    $(".confirmation").removeClass("invisible");
+                    $(".failure_duplicate").addClass("invisible");
+                    $(".failure_invalid").addClass("invisible");
+                    $(".email input").css("color", "#000000");
+
+                    //Re do the margins in the document
+                    $(".email_box").css("margin-bottom", "15px");
+                    $(".confirmation").css("margin-bottom", "75px");
+
+                }
+
+                else if (data === "Duplicate") {
+
+                    //FAILURE RESPONSE FROM THE SERVER DUPLICATE EMAIL ADDRESS
+                    //Get rid of original button and add the error button (nav bar too)
+                    //Turn input text red
+                    $(".email_button").addClass("invisible");
+                    $(".error_button").removeClass("invisible");
+                    $(".email input").css("color", "#ff0000");
+                    $(".nav_email_button").css(
+                        {
+                            "background-image": "url('./images/error_button.png')",
+                            "background-size": "cover",
+                            "background-repeat": "no-repeat"
+                        });
+
+                    //Display the error text
+                    $(".failure_invalid").addClass("invisible");
+                    $(".failure_duplicate").removeClass("invisible");
+
+                    //Re do the margins in document
+                    $(".email_box").css("margin-bottom", "15px");
+                    $(".failure_duplicate").css("margin-bottom", "75px");
+
+                }
+
+            }); //End POST
         
-        }); //End POST
+        
+        } //End validate
+        
+        else {
+            
+            //FAILURE RESPONSE FROM THE SERVER INVALID EMAIL ADDRESS
+
+            //Get rid of original button and add the error button
+            //Turn input text red
+            $(".email_button").addClass("invisible");
+            $(".error_button").removeClass("invisible");
+            $(".email input").css("color", "#ff0000");
+            $(".nav_email_button").css(
+                        {
+                            "background-image": "url('./images/error_button.png')",
+                            "background-size": "cover",
+                            "background-repeat": "no-repeat"
+                        });
+
+            //Display the error text
+            $(".failure_invalid").removeClass("invisible");
+
+            //Re do the margins in document
+            $(".email_box").css("margin-bottom", "15px");
+            $(".failure_invalid").css("margin-bottom", "75px");
+            
+        } //End else
         
         
         
         
         
-        
-        
-        //FAILURE RESPONSE FROM THE SERVER INVALID EMAIL ADDRESS
-        
-//        //Get rid of original button and add the error button
-//        //Turn input text red
-//        $(".email_button").addClass("invisible");
-//        $(".error_button").removeClass("invisible");
-//        $(".email input").css("color", "#ff0000");
-//        $(".nav_email_button").css(
-//                    {
-//                        "background-image": "url('./images/error_button.png')",
-//                        "background-size": "cover",
-//                        "background-repeat": "no-repeat"
-//                    });
-//        
-//        //Display the error text
-//        $(".failure_invalid").removeClass("invisible");
-//        
-//        //Re do the margins in document
-//        $(".email_box").css("margin-bottom", "15px");
-//        $(".failure_invalid").css("margin-bottom", "75px");
         
         
         
