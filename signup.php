@@ -7,19 +7,20 @@
     //Get/Create the required variables
     $email_address = $_POST["email_address"];
     $timestamp = $_POST["timestamp"];
-    $database = "email addresses";
 
     //DEV INFO/////////////
 //    $username = "root";
 //    $password = "root";
 //    $host = "localhost";
 //    $port = "8889";
+//    $database = "email addresses";
     /////////////////
 
     $username = getenv("DB_USERNAME");
     $password = getenv("DB_PASSWORD");
     $host = getenv("CLEARDB_DATABASE_URL");
     $port = NULL;
+    $database = getenv("DB");
 
     //Open up MySQL connection
     $conn = mysqli_connect($host, $username, $password, $database, $port);
