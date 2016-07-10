@@ -5,12 +5,12 @@ Development test for MODE
 https://modedevtest.herokuapp.com/
 
 # Development Time
-12ish hours
+Aproximately 12 hours
 
 # Back End Details
 #### Database:
 Simple MySQL DB with two columns:
-+ addresses 
++ address 
 + timestamp
 
 *I know having a unique ID field is pretty standard but for this simple app I didn't add one (plus technically the email field could be a unique ID)
