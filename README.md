@@ -8,7 +8,7 @@ https://modedevtest.herokuapp.com/
 12ish hours
 
 # Back End Details
-PHP used for the back programming on the Apache server. MySQL database used to house user information.
+PHP used for the back programming on the Apache server. MySQL database used to house user information. The database is a simple one that consists of two columns "addresses", and "timestamp." Generally, there would be a unique id to go along with it but in this simple example I left it off (though technically the email address could be a unique id.)
 
 # Front End Details
 #### Developed With:
